@@ -12,6 +12,20 @@ A FastAPI + vanilla JavaScript web application for comparing archived NOAA CFSv2
 - Region-ready API parameters (`west`, `south`, `east`, `north`) for drag-box clients.
 - Download statistics as CSV and local cache reuse.
 
+
+## GitHub Pages Deployment
+
+This repository can be published directly with GitHub Pages because `index.html` redirects to the static viewer in `frontend/`. In Pages/static mode there is no Python runtime, no secure place for ERA5 credentials, and browser CORS rules can prevent direct NOAA/ERA5 downloads. The site therefore falls back to deterministic sample grids so the UI, time matching, color tables, animation, CSV export, and metric calculations still work online.
+
+For scientifically authoritative verification on GitHub Pages, precompute gridded forecast/observation anomaly pairs with the FastAPI backend or another trusted workflow, publish those files as static assets, and point the frontend at those precomputed products. For automatic archive lookup, downloading, regridding, and caching, run the FastAPI backend.
+
+To enable Pages:
+
+1. Push this branch to GitHub.
+2. In repository settings, choose **Pages**.
+3. Select deployment from the branch root.
+4. Open the Pages URL; it will load `frontend/index.html`.
+
 ## Installation
 
 ```bash
