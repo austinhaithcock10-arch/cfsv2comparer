@@ -1,0 +1,2 @@
+function metricRows(stats, explanations){return Object.entries(stats).map(([k,v])=>`<div class="metric" title="${explanations[k]||''}"><b>${k.replaceAll('_',' ').toUpperCase()}</b><span>${Number(v).toFixed(3)}</span></div>`).join('')}
+function statsCSV(payload){const rows=[['metric','value'],...Object.entries(payload.statistics),['regional_forecast_mean',payload.regional.forecast_mean],['regional_observed_mean',payload.regional.observed_mean]];return rows.map(r=>r.join(',')).join('\n')}

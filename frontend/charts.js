@@ -1,0 +1,1 @@
+function drawChart(payload){const s=payload.statistics;Plotly.newPlot('chart',[{type:'bar',x:['Bias','MAE','RMSE','ACC','Score'],y:[s.mean_bias,s.mae,s.rmse,s.acc,s.score],marker:{color:'#5fb4ff'}}],{paper_bgcolor:'transparent',plot_bgcolor:'transparent',font:{color:getComputedStyle(document.body).color},margin:{t:20,l:40,r:10,b:40}},{displayModeBar:false})}
